@@ -1,10 +1,22 @@
 package com.jes.aulas;
 
+import java.util.Scanner;
+
 public class HelloWorld {
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        
+    	Scanner in = new Scanner(System.in);  
+        System.out.print("Seja bem vindo ao sistema de chamados, insira seu nome para iniciar");  
+        String name = in.nextLine();  
+        System.out.println("Certo " + name + " vamos começar!");             
+        
+        
+        in.close();         
     }
+    
 }
+
+
 
 
 //TODO
