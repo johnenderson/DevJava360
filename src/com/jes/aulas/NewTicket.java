@@ -104,7 +104,6 @@ public class NewTicket {
         System.out.println("Informe qual é o Titulo para este chamado:");
         chamado.setTituloChamado(in.nextLine());
 
-        System.out.println("Informe qual é o Tipo do Chamado: " + TypeTicket.TypeTicket());
         while (errorTipoChamado) {
             try {
                 tipoChamado = Integer.parseInt(in.nextLine());
