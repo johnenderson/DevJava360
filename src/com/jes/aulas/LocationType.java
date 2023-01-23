@@ -1,20 +1,21 @@
 package com.jes.aulas;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LocationType {
 
+    public static Map<Integer, String> getLocationType() {
+
+        Map<Integer, String> lista = new HashMap<>();
+        lista.put(1, "Loja");
+        lista.put(2, "Fabrica");
+        lista.put(3, "Escritorio");
+
+        return lista;
+    }
+
     public static void main(String[] args) {
-
-        List<String> lista = new ArrayList<>();
-        lista.add("1. Loja");
-        lista.add("2. Fabrica");
-        lista.add("3. Escritorio");
-
-        for (String listaLocalizacao : lista) {
-            System.out.println(listaLocalizacao);
-        }
-
+        Map<Integer, String> locationType = getLocationType();
     }
 }

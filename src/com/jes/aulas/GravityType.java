@@ -1,24 +1,24 @@
 package com.jes.aulas;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GravityType {
+    public static Map<Integer, String> getGravityTypes() {
 
-    public static void main(String[] args) {
+        Map<Integer, String> lista = new HashMap<>();
+        lista.put(0, "Erro que impede a continuidade do projeto de implantação");
+        lista.put(1, "Sistema Indisponivel");
+        lista.put(2, "Erro critico para operação do sistema");
+        lista.put(3, "Erro médio ou de menor impacto");
+        lista.put(4, "Dúvidas e ou melhorias");
 
-        List<String> lista = new ArrayList<>();
-        lista.add("0. Erro que impede a continuidade do projeto de implantação");
-        lista.add("1. Sistema Indisponivel");
-        lista.add("2. Erro critico para operação do sistema");
-        lista.add("3. Erro médio ou de menor impacto");
-        lista.add("4. Dúvidas e ou melhorias");
-
-        for (String listagravidade : lista) {
-            System.out.println(listagravidade);
-
-        }
+        return lista;
 
     }
 
+    public static void main(String[] args) {
+        Map<Integer, String> gravityTypes = getGravityTypes();
+
+    }
 }
