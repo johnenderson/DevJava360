@@ -1,5 +1,6 @@
 package com.jes.aulas;
 
+import java.util.Map;
 import java.util.Scanner;
 
 public class NewTicket {
@@ -104,24 +105,15 @@ public class NewTicket {
         System.out.println("Informe qual é o Titulo para este chamado:");
         chamado.setTituloChamado(in.nextLine());
 
+        Map<Integer, String> typeTicket = TypeTicket.getTypeTicket();
         while (errorTipoChamado) {
             try {
                 tipoChamado = Integer.parseInt(in.nextLine());
-                switch (tipoChamado) {
-                    case 1:
-                        System.out.println("Segurança da informação, selecionado!");
-                        errorTipoChamado = false;
-                        break;
-                    case 2:
-                        System.out.println("Infraestrutura, selecionado!");
-                        errorTipoChamado = false;
-                        break;
-                    case 3:
-                        System.out.println("Sistemas, selecionado!");
-                        errorTipoChamado = false;
-                        break;
-                    default:
-                        System.out.println("O número escolhido é inválido! Digite um número entre 1 e 3.");
+                if (typeTicket.containsKey(tipoChamado)) {
+                    System.out.println(typeTicket.get(tipoChamado) + ", selecionado!");
+                    errorTipoChamado = false;
+                } else {
+                    System.out.println("O número escolhido é inválido! Digite um número entre 1 e 3.");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("ERROR: O número escolhido é inválido! Digite um número entre 1 e 3.");
