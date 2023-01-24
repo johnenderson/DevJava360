@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class TypeTicket {
     private int tipoChamado;
+    private boolean errorTipoChamado = true;
 
     public static Map<Integer, String> getTypeTicket() {
         Map<Integer, String> lista = new HashMap<>();
@@ -21,9 +22,12 @@ public class TypeTicket {
         return tipoChamado;
     }
 
-    public static void main(String[] args) {
-        TypeTicket typeTicket = new TypeTicket();
-        Map<Integer, String> typeTicketMap = getTypeTicket();
+    public boolean getErrorTipoChamado() {
+        return errorTipoChamado;
+    }
+
+    public void setErrorTipoChamado(boolean errorTipoChamado) {
+        this.errorTipoChamado = errorTipoChamado;
     }
 
 }
