@@ -1,6 +1,9 @@
 package com.jes.aulas;
 
+import java.util.Map;
 import java.util.Scanner;
+
+import static java.lang.Integer.parseInt;
 
 public class NewTicket {
 
@@ -8,12 +11,10 @@ public class NewTicket {
 
         Ticket chamado = new Ticket();
 
-        int tipoChamado;
         int opcao;
         int opcaoEmails;
         int tipoLocalizacao;
         boolean errorSolicitante = true;
-        boolean errorTipoChamado = true;
         boolean errorEmailsAdicionais = true;
         boolean errorTipoLocalizacao = true;
 
@@ -25,7 +26,7 @@ public class NewTicket {
 
         while (errorSolicitante) {
             try {
-                opcao = Integer.parseInt(in.nextLine());
+                opcao = parseInt(in.nextLine());
                 switch (opcao) {
                     case 1:
                         chamado.setSolicitanteChamado(chamado.getIniciadorChamado());
@@ -53,7 +54,7 @@ public class NewTicket {
         System.out.println("Informe qual é o Tipo de Localização: Tipo de Localização (1. Loja, 2. Fabrica ou 3. Escritório)");
         while (errorTipoLocalizacao) {
             try {
-                tipoLocalizacao = Integer.parseInt(in.nextLine());
+                tipoLocalizacao = parseInt(in.nextLine());
                 switch (tipoLocalizacao) {
                     case 1:
                         System.out.println("Loja, selecionado!");
@@ -81,7 +82,7 @@ public class NewTicket {
         System.out.println("Deseja informar mais E-mails? Digite '1' para 'SIM' e '2' para 'NÃO'");
         while (errorEmailsAdicionais) {
             try {
-                opcaoEmails = Integer.parseInt(in.nextLine());
+                opcaoEmails = parseInt(in.nextLine());
                 switch (opcaoEmails) {
                     case 1:
                         System.out.println("Informar e-mails adicionais a serem notificados, separados por ';'. (Ex: e-mail1@teste.com; email2@teste.com)");
@@ -104,37 +105,35 @@ public class NewTicket {
         System.out.println("Informe qual é o Titulo para este chamado:");
         chamado.setTituloChamado(in.nextLine());
 
-        while (errorTipoChamado) {
+        TypeTicket typeTicket = new TypeTicket();
+        Map<Integer, String> typeTicketMap = TypeTicket.getTypeTicket();
+        while (typeTicket.getErrorTipoChamado()) {
             try {
-                tipoChamado = Integer.parseInt(in.nextLine());
-                switch (tipoChamado) {
-                    case 1:
-                        System.out.println("Segurança da informação, selecionado!");
-                        errorTipoChamado = false;
-                        break;
-                    case 2:
-                        System.out.println("Infraestrutura, selecionado!");
-                        errorTipoChamado = false;
-                        break;
-                    case 3:
-                        System.out.println("Sistemas, selecionado!");
-                        errorTipoChamado = false;
-                        break;
-                    default:
-                        System.out.println("O número escolhido é inválido! Digite um número entre 1 e 3.");
+                typeTicket.setTipoChamado(parseInt(in.nextLine()));
+                if (typeTicketMap.containsKey(typeTicket.getTipoChamado())) {
+                    System.out.println(typeTicketMap.get(typeTicket.getTipoChamado()) + ", selecionado!");
+                    typeTicket.setErrorTipoChamado(false);
+                } else {
+                    System.out.println("O número escolhido é inválido! Digite um número entre 1 e 3.");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("ERROR: O número escolhido é inválido! Digite um número entre 1 e 3.");
             }
         }
 
-        //Informar gravidade
+//        Informar gravidade
+//        GravityType gravityType = new GravityType();
+//        Map<Integer, String> gravityTypeMap = GravityType.getGravityTypes();
+//        while(true){
+//            try
+//        }
+
+
         //Informar urgencia
 
 
         System.out.println("Qual a sua dúvida ou problema? (Se for um problema, detalhe o máximo possível incluindo como anexo a tela do erro)");
         chamado.setDescricaoChamado(in.nextLine());
-
 
         System.out.println("------------------------------");
         System.out.println("INFORMAÇÕES DO CHAMADO");
@@ -151,7 +150,6 @@ public class NewTicket {
         //System.out.println("Tipo de Chamado: " + chamado.getTipoChamado());
         //System.out.println("Gravidade: " + chamado.getGravidadeChamado());
         //System.out.println("Urgência: " + chamado.getUrgenciaChamado());
-
 
         in.close();
     }
