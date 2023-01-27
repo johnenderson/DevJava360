@@ -1,7 +1,9 @@
-package com.jes.aulas.enums;
+package com.issuetracker.engine.enums;
 
 public enum TipoLocalizacao {
-	LOJA(1, "LOJA", "Loja"), FABRICA(2, "FABRICA", "Fabrica"), ESCRITORIO(3, "ESCRITORIO", "Escritorio"),
+	LOJA(1, "LOJA", "Loja"),
+	FABRICA(2, "FABRICA", "Fabrica"),
+	ESCRITORIO(3, "ESCRITORIO", "Escritorio"),
 	WRONG(0, "WRONG", "Wrong");
 
 	private int codLocalizacao;

@@ -1,4 +1,4 @@
-package com.jes.aulas;
+package com.issuetracker.engine;
 
 public class Ticket extends TypeTicket{
 
@@ -28,8 +28,6 @@ public class Ticket extends TypeTicket{
     public String getNumeroChamado() {
         return numeroChamado;
     }
-
- 
 
     public String getIniciadorChamado() {
         return iniciadorChamado;

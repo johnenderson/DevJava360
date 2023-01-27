@@ -1,4 +1,4 @@
-package com.jes.aulas.enums;
+package com.issuetracker.engine.enums;
 
 public class TesteEnum {
 
