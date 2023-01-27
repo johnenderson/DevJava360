@@ -1,9 +1,9 @@
-package com.jes.aulas;
+package com.issuetracker.engine;
+
+import com.issuetracker.engine.enums.IssueCategory;
 
 import java.util.Map;
 import java.util.Scanner;
-
-import static java.lang.Integer.parseInt;
 
 public class NewTicket {
 
@@ -26,7 +26,7 @@ public class NewTicket {
 
         while (errorSolicitante) {
             try {
-                opcao = parseInt(in.nextLine());
+                opcao = Integer.valueOf(in.nextLine());
                 switch (opcao) {
                     case 1:
                         chamado.setSolicitanteChamado(chamado.getIniciadorChamado());
@@ -54,7 +54,7 @@ public class NewTicket {
         System.out.println("Informe qual é o Tipo de Localização: Tipo de Localização (1. Loja, 2. Fabrica ou 3. Escritório)");
         while (errorTipoLocalizacao) {
             try {
-                tipoLocalizacao = parseInt(in.nextLine());
+                tipoLocalizacao = Integer.valueOf(in.nextLine());
                 switch (tipoLocalizacao) {
                     case 1:
                         System.out.println("Loja, selecionado!");
@@ -82,7 +82,7 @@ public class NewTicket {
         System.out.println("Deseja informar mais E-mails? Digite '1' para 'SIM' e '2' para 'NÃO'");
         while (errorEmailsAdicionais) {
             try {
-                opcaoEmails = parseInt(in.nextLine());
+                opcaoEmails = Integer.valueOf(in.nextLine());
                 switch (opcaoEmails) {
                     case 1:
                         System.out.println("Informar e-mails adicionais a serem notificados, separados por ';'. (Ex: e-mail1@teste.com; email2@teste.com)");
@@ -105,19 +105,16 @@ public class NewTicket {
         System.out.println("Informe qual é o Titulo para este chamado:");
         chamado.setTituloChamado(in.nextLine());
 
-        TypeTicket typeTicket = new TypeTicket();
-        Map<Integer, String> typeTicketMap = TypeTicket.getTypeTicket();
-        while (typeTicket.getErrorTipoChamado()) {
+        IssueCategory category = null;
+        while (category == null) {
             try {
-                typeTicket.setTipoChamado(parseInt(in.nextLine()));
-                if (typeTicketMap.containsKey(typeTicket.getTipoChamado())) {
-                    System.out.println(typeTicketMap.get(typeTicket.getTipoChamado()) + ", selecionado!");
-                    typeTicket.setErrorTipoChamado(false);
-                } else {
-                    System.out.println("O número escolhido é inválido! Digite um número entre 1 e 3.");
-                }
+                int input = Integer.valueOf(in.nextLine());
+                category = IssueCategory.values()[input - 1];
+                System.out.println(category.getCategoryName() + ", selecionado!");
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("O número escolhido é inválido! Digite um número entre 1 e 9.");
             } catch (NumberFormatException e) {
-                System.out.println("ERROR: O número escolhido é inválido! Digite um número entre 1 e 3.");
+                System.out.println("ERROR: O número escolhido é inválido! Digite um número entre 1 e 9.");
             }
         }
 
