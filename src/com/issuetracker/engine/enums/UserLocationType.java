@@ -1,16 +1,16 @@
 package com.issuetracker.engine.enums;
 
-public enum IssueLocationType {
+public enum UserLocationType {
 	LOJA(1, "LOJA", "Loja"),
 	FABRICA(2, "FABRICA", "Fabrica"),
 	ESCRITORIO(3, "ESCRITORIO", "Escritorio"),
 	WRONG(0, "WRONG", "Wrong");
 
-	private int locationTypeId;
-	private String locationTypeUpperCase;
-	private String locationTypeName;
+	private final int locationTypeId;
+	private final String locationTypeUpperCase;
+	private final String locationTypeName;
 
-	IssueLocationType(int codLocalizacao, String locationTypeUpperCase, String locationType) {
+	UserLocationType(int codLocalizacao, String locationTypeUpperCase, String locationType) {
 		this.locationTypeId = codLocalizacao;
 		this.locationTypeUpperCase = locationTypeUpperCase;
 		this.locationTypeName = locationType;
@@ -20,7 +20,7 @@ public enum IssueLocationType {
 		return locationTypeUpperCase;
 	}
 
-	public String getlocationTypeName() {
+	public String getLocationTypeName() {
 		return locationTypeName;
 	}
 
@@ -28,7 +28,7 @@ public enum IssueLocationType {
 		return locationTypeId;
 	}
 
-	public IssueLocationType findEnum(String value) {
+	public UserLocationType findEnum(String value) {
 		if (value.equals("LOJA") || value.equals("Loja")) {
 			return LOJA;
 		}
@@ -41,7 +41,7 @@ public enum IssueLocationType {
 		return WRONG;
 	}
 
-	public IssueLocationType findEnum(int value) {
+	public UserLocationType findEnum(int value) {
 		if (value == 1) {
 			return LOJA;
 		}

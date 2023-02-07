@@ -6,8 +6,8 @@ public enum IssueSeverity {
     ISSUE_SEVERITY_LEVEL_1(1, "Sistema Indisponivel"), ISSUE_SEVERITY_LEVEL_2(2, "Erro critico para operação do sistema"),
     ISSUE_SEVERITY_LEVEL_3(3, "Erro médio ou de menor impacto"), ISSUE_SEVERITY_LEVEL_4(4, "Dúvidas e ou melhorias");
 
-    private int severityId;
-    private String severityName;
+    private final int severityId;
+    private final String severityName;
 
     IssueSeverity(int severityId, String severityName) {
         this.severityId = severityId;

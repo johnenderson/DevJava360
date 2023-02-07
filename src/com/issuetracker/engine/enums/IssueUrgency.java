@@ -6,8 +6,8 @@ public enum IssueUrgency {
     ISSUE_URGENCY_2(2, "Atender o mais cedo possivel"),
     ISSUE_URGENCY_3(3, "Prazo padrão de atendimento");
 
-    private int urgencyId;
-    private String urgencyName;
+    private final int urgencyId;
+    private final String urgencyName;
 
     IssueUrgency(int urgencyId, String urgencyName) {
         this.urgencyId = urgencyId;

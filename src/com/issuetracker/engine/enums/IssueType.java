@@ -6,8 +6,8 @@ public enum IssueType {
     ISSUE_TYPE_002(1, "Infraestrutura"),
     ISSUE_TYPE_003(2, "Sistemas");
 
-    private int issueTypeID;
-    private String IssueTypeName;
+    private final int issueTypeID;
+    private final String IssueTypeName;
 
     IssueType(int issueTypeID, String issueTypeName) {
         this.issueTypeID = issueTypeID;

@@ -6,15 +6,38 @@ public class Issue {
     private String idIssue;
     private String iniciadorChamado;
     private String solicitanteChamado;
-    private String phone;
-    private String areaSolicitante;
-    private String email;
-    private String emailsAdicionais;
-    private String descricaoChamado;
+    private String additionalEmails;
+    private String issueDescription;
     private int categoryId;
-    private int locationType;
+    private String categoryName;
     private int severityId;
+    private String severityName;
     private int urgencyId;
+    private String urgencyName;
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public String getSeverityName() {
+        return severityName;
+    }
+
+    public void setSeverityName(String severityName) {
+        this.severityName = severityName;
+    }
+
+    public String getUrgencyName() {
+        return urgencyName;
+    }
+
+    public void setUrgencyName(String urgencyName) {
+        this.urgencyName = urgencyName;
+    }
 
     public int getUrgencyId() {
         return urgencyId;
@@ -30,14 +53,6 @@ public class Issue {
 
     public void setSeverityId(int severityId) {
         this.severityId = severityId;
-    }
-
-    public int getLocationType() {
-        return locationType;
-    }
-
-    public void setLocationType(int locationType) {
-        this.locationType = locationType;
     }
 
     public int getCategoryId() {
@@ -80,44 +95,20 @@ public class Issue {
         this.solicitanteChamado = solicitanteChamado;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getAdditionalEmails() {
+        return additionalEmails;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setAdditionalEmails(String additionalEmails) {
+        this.additionalEmails = additionalEmails;
     }
 
-    public String getAreaSolicitante() {
-        return areaSolicitante;
+    public String getIssueDescription() {
+        return issueDescription;
     }
 
-    public void setAreaSolicitante(String areaSolicitante) {
-        this.areaSolicitante = areaSolicitante;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getEmailsAdicionais() {
-        return emailsAdicionais;
-    }
-
-    public void setEmailsAdicionais(String emailsAdicionais) {
-        this.emailsAdicionais = emailsAdicionais;
-    }
-
-    public String getDescricaoChamado() {
-        return descricaoChamado;
-    }
-
-    public void setDescricaoChamado(String s) {
-        this.descricaoChamado = descricaoChamado;
+    public void setIssueDescription(String s) {
+        this.issueDescription = issueDescription;
     }
 
 }

@@ -12,8 +12,8 @@ public enum IssueCategory {
         this.categoryName = categoryName;
     }
 
-    private int categoryId;
-    private String categoryName;
+    private final int categoryId;
+    private final String categoryName;
 
     public int getCategoryId() {
         return categoryId;
