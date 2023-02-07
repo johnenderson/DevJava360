@@ -1,34 +1,34 @@
 package com.issuetracker.engine.enums;
 
-public enum TipoLocalizacao {
+public enum IssueLocationType {
 	LOJA(1, "LOJA", "Loja"),
 	FABRICA(2, "FABRICA", "Fabrica"),
 	ESCRITORIO(3, "ESCRITORIO", "Escritorio"),
 	WRONG(0, "WRONG", "Wrong");
 
-	private int codLocalizacao;
-	private String localizacaoUpperCase;
-	private String localizacao;
+	private int locationTypeId;
+	private String locationTypeUpperCase;
+	private String locationTypeName;
 
-	TipoLocalizacao(int codLocalizacao, String localizacaoUpperCase, String localizacao) {
-		this.codLocalizacao = codLocalizacao;
-		this.localizacaoUpperCase = localizacaoUpperCase;
-		this.localizacao = localizacao;
+	IssueLocationType(int codLocalizacao, String locationTypeUpperCase, String locationType) {
+		this.locationTypeId = codLocalizacao;
+		this.locationTypeUpperCase = locationTypeUpperCase;
+		this.locationTypeName = locationType;
 	}
 
 	public String getUpperCaseValue() {
-		return localizacaoUpperCase;
+		return locationTypeUpperCase;
 	}
 
-	public String getValue() {
-		return localizacao;
+	public String getlocationTypeName() {
+		return locationTypeName;
 	}
 
-	public int getCodLocalizacao() {
-		return codLocalizacao;
+	public int getLocationTypeId() {
+		return locationTypeId;
 	}
 
-	public TipoLocalizacao findEnum(String value) {
+	public IssueLocationType findEnum(String value) {
 		if (value.equals("LOJA") || value.equals("Loja")) {
 			return LOJA;
 		}
@@ -41,7 +41,7 @@ public enum TipoLocalizacao {
 		return WRONG;
 	}
 
-	public TipoLocalizacao findEnum(int value) {
+	public IssueLocationType findEnum(int value) {
 		if (value == 1) {
 			return LOJA;
 		}
@@ -51,7 +51,6 @@ public enum TipoLocalizacao {
 		if (value == 3) {
 			return ESCRITORIO;
 		}
-
 		return WRONG;
 	}
 
