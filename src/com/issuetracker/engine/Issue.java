@@ -1,10 +1,9 @@
 package com.issuetracker.engine;
 
 public class Issue {
-
+    User user = new User();
     private String title;
     private String idIssue;
-    private String iniciadorChamado;
     private String solicitanteChamado;
     private String additionalEmails;
     private String issueDescription;
@@ -77,14 +76,6 @@ public class Issue {
 
     public String getIdIssue() {
         return idIssue;
-    }
-
-    public String getIniciadorChamado() {
-        return iniciadorChamado;
-    }
-
-    public void setIniciadorChamado(String iniciadorChamado) {
-        this.iniciadorChamado = iniciadorChamado;
     }
 
     public String getSolicitanteChamado() {
