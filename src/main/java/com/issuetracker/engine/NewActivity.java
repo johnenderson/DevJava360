@@ -5,16 +5,16 @@ import com.issuetracker.engine.enums.IssueSeverity;
 import com.issuetracker.engine.enums.IssueUrgency;
 import com.issuetracker.engine.utils.Terms;
 import com.issuetracker.engine.enums.UserLocationType;
-import com.issuetracker.engine.exception.IssueTrackerErrors;
 
 import java.util.Scanner;
 
 public class NewActivity {
 
-    public static void main(String[] args) {
+    private static boolean errorRequester = true;
+    private static boolean errorAdditionalEmails = true;
 
+    public static void main(String[] args) {
         Issue issue = new Issue();
-        IssueTrackerErrors error = new IssueTrackerErrors();
 
     	Scanner in = new Scanner(System.in);
         System.out.println(Terms.TERM_001.getTermName());
@@ -22,20 +22,20 @@ public class NewActivity {
         System.out.println("Certo " + issue.user.getNmUser() + " vamos começar!");
 
         System.out.println(Terms.TERM_002.getTermName());
-        while (error.isErrorRequester()) {
+        while (errorRequester) {
             try {
                 int optionSelectedRequester = Integer.valueOf(in.nextLine());
                 switch (optionSelectedRequester) {
                     case 1:
                         issue.setSolicitanteChamado(issue.user.getNmUser());
                         System.out.println("Ok, " + issue.user.getNmUser() + "!");
-                        error.setErrorRequester(false);
+                        errorRequester = false;
                         break;
                     case 2:
                         System.out.println(Terms.TERM_003.getTermName());
                         issue.setSolicitanteChamado(in.nextLine().toUpperCase());
                         System.out.println("OK, " + issue.getSolicitanteChamado()+"!");
-                        error.setErrorRequester(false);
+                        errorRequester = false;
                         break;
                     default:
                         System.out.println("ERROR: O número escolhido é inválido! Digite um número entre 1 e 2.");
@@ -69,7 +69,7 @@ public class NewActivity {
         issue.user.setDsEmail(in.nextLine().toLowerCase());
 
         System.out.println(Terms.TERM_008.getTermName());
-        while (error.isErrorAdditionalEmails()) {
+        while (errorAdditionalEmails) {
             try {
                 int optionSelectedEmails = Integer.valueOf(in.nextLine());
                 switch (optionSelectedEmails) {
@@ -77,11 +77,11 @@ public class NewActivity {
                         System.out.println(Terms.TERM_011.getTermName());
                         issue.setAdditionalEmails(in.nextLine().toLowerCase());
                         System.out.println(Terms.TERM_012.getTermName() + issue.getAdditionalEmails());
-                        error.setErrorAdditionalEmails(false);
+                        errorAdditionalEmails = false;
                         break;
                     case 2:
                         System.out.println(Terms.TERM_013.getTermName());
-                        error.setErrorAdditionalEmails(false);
+                        errorAdditionalEmails=false;
                         break;
                     default:
                         System.out.println("ERROR: O número escolhido é inválido! Digite um número entre 1 e 2.");
@@ -104,7 +104,7 @@ public class NewActivity {
                 issue.setCategoryName(category.getCategoryName());
                 System.out.println(category.getCategoryName() + Terms.TERM_017.getTermName());
             } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println("ERROR: O número escolhido é inválido! Digite um número entre 1 e 9.");
+                System.out.println("ERROR: O número escolhido é inválido! Digite um número entre " + e.getMessage());
             }
         }
 
