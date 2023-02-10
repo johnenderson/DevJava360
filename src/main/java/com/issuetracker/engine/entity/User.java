@@ -1,13 +1,42 @@
-package com.issuetracker.engine;
+package com.issuetracker.engine.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "USERS")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "cduser")
+    private Integer cdUser;
+
+    @Column(name = "nmuser")
     private String nmUser;
+
+    @Column(name = "nmdepartment")
     private String nmDepartment;
+
+    @Column(name = "dsuseremail")
     private String dsEmail;
+
+    @Column(name = "phone")
     private String phone;
-    private int locationTypeId;
+
+    @Column(name = "cdlocationtype")
+    private Integer locationTypeId;
+
+    @Column(name = "nmlocationtype")
     private String locationTypeName;
+
+    public int getCdUser() {
+        return cdUser;
+    }
 
     public String getLocationTypeName() {
         return locationTypeName;

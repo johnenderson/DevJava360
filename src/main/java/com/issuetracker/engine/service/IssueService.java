@@ -1,5 +1,6 @@
 package com.issuetracker.engine;
 
+import com.issuetracker.engine.entity.Issue;
 import com.issuetracker.engine.enums.IssueCategory;
 import com.issuetracker.engine.enums.IssueSeverity;
 import com.issuetracker.engine.enums.IssueUrgency;
