@@ -1,4 +1,4 @@
-package com.issuetracker.engine.entity;
+package com.issuetracker.engine.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.issuetracker.engine.entity;
+package com.issuetracker.engine.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -84,5 +84,18 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "cdUser=" + cdUser +
+                ", nmUser='" + nmUser + '\'' +
+                ", nmDepartment='" + nmDepartment + '\'' +
+                ", dsEmail='" + dsEmail + '\'' +
+                ", phone='" + phone + '\'' +
+                ", locationTypeId=" + locationTypeId +
+                ", locationTypeName='" + locationTypeName + '\'' +
+                '}';
     }
 }

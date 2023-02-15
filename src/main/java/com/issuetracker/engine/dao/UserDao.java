@@ -1,6 +1,6 @@
 package com.issuetracker.engine.dao;
 
-import com.issuetracker.engine.entity.User;
+import com.issuetracker.engine.model.User;
 import jakarta.persistence.EntityManager;
 
 public class UserDao {
