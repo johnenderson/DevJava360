@@ -21,6 +21,7 @@ public class IssueService {
 
     public static void main(String[] args) {
         EntityManager entityManager = JPAUtil.getEntityManagerIssueTracker();
+        IssueDao issueDao = new IssueDao(entityManager);
         User user =  createUser(entityManager);
         User userRequester = null;
 
@@ -77,11 +78,14 @@ public class IssueService {
             }
         }
 
-
         System.out.println(Terms.TERM_009.getTermName());
         issue.setTitle(in.nextLine());
 
         System.out.println(Terms.TERM_010.getTermName());
+        for (IssueCategory category : IssueCategory.values()) {
+            System.out.println(category.getCategoryId() + " - " + category.getCategoryName());
+        }
+
         IssueCategory category = null;
         while (category == null) {
             try {
@@ -128,7 +132,7 @@ public class IssueService {
         System.out.println(Terms.TERM_014.getTermName());
         issue.setIssueDescription(in.nextLine());
 
-        IssueDao issueDao = new IssueDao(entityManager);
+
         entityManager.getTransaction().begin();
         issueDao.createIssue(issue);
         entityManager.flush();
