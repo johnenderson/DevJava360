@@ -1,4 +1,4 @@
-package com.issuetracker.engine.exception;
+package com.issuetracker.engine.domain.exception;
 
 public class IssueException extends Exception {
 
