@@ -1,7 +1,8 @@
 package com.issuetracker.engine.dao;
 
-import com.issuetracker.engine.model.User;
-import jakarta.persistence.EntityManager;
+import com.issuetracker.engine.domain.model.User;
+
+import javax.persistence.EntityManager;
 
 public class UserDao {
 
@@ -26,5 +27,6 @@ public class UserDao {
     public void deleteUser(final User user){
         this.entityManager.remove(user);
     }
+
 
 }

@@ -2,16 +2,16 @@ package com.issuetracker.engine.service;
 
 import com.issuetracker.engine.dao.IssueDao;
 import com.issuetracker.engine.dao.UserDao;
-import com.issuetracker.engine.model.Issue;
+import com.issuetracker.engine.api.model.Issue;
 import com.issuetracker.engine.enums.IssueCategory;
 import com.issuetracker.engine.enums.IssueSeverity;
 import com.issuetracker.engine.enums.IssueUrgency;
-import com.issuetracker.engine.model.User;
+import com.issuetracker.engine.api.model.User;
 import com.issuetracker.engine.utils.JPAUtil;
 import com.issuetracker.engine.utils.Terms;
 import com.issuetracker.engine.enums.UserLocationType;
-import jakarta.persistence.EntityManager;
 
+import javax.persistence.EntityManager;
 import java.util.Scanner;
 
 public class IssueService {
@@ -25,6 +25,7 @@ public class IssueService {
         User userRequester = null;
 
         Issue issue = new Issue();
+        issue.setStarterId(user);
         Scanner in = new Scanner(System.in);
 
         System.out.println(Terms.TERM_002.getTermName());
@@ -33,16 +34,16 @@ public class IssueService {
                 int optionSelectedRequester = Integer.valueOf(in.nextLine());
                 switch (optionSelectedRequester) {
                     case 1:
-                        issue.setRequesterId(user.getCdUser());
+                        issue.setRequesterId(user);
+
                         System.out.println("Ok, " + user.getNmUser() + "!");
                         errorRequester = false;
                         break;
                     case 2:
                         System.out.println(Terms.TERM_003.getTermName());
-                        issue.setStarterId(user.getCdUser());
                         System.out.println("Iniciando cadastro do solicitante...");
                         userRequester = createUser(entityManager);
-                        issue.setRequesterId(userRequester.getCdUser());
+                        issue.setRequesterId(userRequester);
                         System.out.println("OK, " + userRequester.getNmUser()+"!");
                         errorRequester = false;
                         break;
@@ -131,7 +132,7 @@ public class IssueService {
         IssueDao issueDao = new IssueDao(entityManager);
         entityManager.getTransaction().begin();
         issueDao.createIssue(issue);
-        entityManager.flush();
+        entityManager.getTransaction().commit();
         entityManager.clear();
 
 
@@ -140,7 +141,7 @@ public class IssueService {
         System.out.println("------------------------------");
         System.out.println("Titulo: " + issue.getTitle());
         System.out.println("Nome Iniciador: " + user.getNmUser());
-        System.out.println("Nome Solicitante: " + userRequester == null ? user.getNmUser() : userRequester.getNmUser() );
+        //System.out.println("Nome Solicitante: " + userRequester == null ? user.getNmUser() : userRequester.getNmUser() );
         System.out.println("E-mail do Solicitante: " + user.getDsEmail());
         System.out.println("E-mails adicionais a serem notificados: " + issue.getAdditionalEmails());
         System.out.println("Telefone do Solicitante: " + user.getPhone());
