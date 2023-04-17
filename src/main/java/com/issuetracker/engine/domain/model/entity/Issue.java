@@ -1,6 +1,5 @@
-package com.issuetracker.engine.domain.model;
+package com.issuetracker.engine.domain.model.entity;
 
-import com.issuetracker.engine.domain.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -32,11 +31,11 @@ public class Issue {
 
     @ManyToOne
     @JoinColumn(name = "cduserstart", insertable = true, updatable = true)
-    private User starterId;
+    private UserEntity starterId;
 
     @ManyToOne
     @JoinColumn(name = "cduserrequester", insertable = true, updatable = true)
-    private User requesterId;
+    private UserEntity requesterId;
 
     @Column(name = "nmadditionalemails")
     private String additionalEmails;

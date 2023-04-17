@@ -1,6 +1,6 @@
-package com.issuetracker.engine.dao;
+package com.issuetracker.engine.domain.repository;
 
-import com.issuetracker.engine.domain.model.Issue;
+import com.issuetracker.engine.domain.model.entity.Issue;
 
 import javax.persistence.EntityManager;
 

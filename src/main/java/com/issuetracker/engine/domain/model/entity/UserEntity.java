@@ -1,6 +1,5 @@
 package com.issuetracker.engine.domain.model.entity;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,7 +18,7 @@ import java.util.List;
 @Setter
 @Table(name = "USERS")
 @NoArgsConstructor
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -38,18 +37,16 @@ public class User {
     @Column(name = "phone")
     private String phone;
 
-    @Column(name = "cdlocationtype")
-    private Integer locationTypeId;
-
-    @Column(name = "nmlocationtype")
-    private String locationTypeName;
-
-    @OneToMany(mappedBy = "starterId")
-    private List<Issue> issueStarterList;
-
-    @OneToMany(mappedBy = "requesterId")
-    private List<Issue> issueRequesterList;
-
-
+//    @Column(name = "cdlocationtype")
+//    private Integer locationTypeId;
+//
+//    @Column(name = "nmlocationtype")
+//    private String locationTypeName;
+//
+//    @OneToMany(mappedBy = "starterId")
+//    private List<Issue> issueStarterList;
+//
+//    @OneToMany(mappedBy = "requesterId")
+//    private List<Issue> issueRequesterList;
 
 }

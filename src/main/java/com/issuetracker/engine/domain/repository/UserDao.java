@@ -1,6 +1,6 @@
-package com.issuetracker.engine.dao;
+package com.issuetracker.engine.domain.repository;
 
-import com.issuetracker.engine.domain.model.User;
+import com.issuetracker.engine.domain.model.entity.UserEntity;
 
 import javax.persistence.EntityManager;
 
@@ -12,19 +12,19 @@ public class UserDao {
         this.entityManager = entityManager;
     }
 
-    public void createUser(User user) {
+    public void createUser(UserEntity user) {
         this.entityManager.persist(user);
     }
 
-    public User readUser(final Integer cduser){
-        return this.entityManager.find(User.class, cduser);
+    public UserEntity readUser(final Integer cduser){
+        return this.entityManager.find(UserEntity.class, cduser);
     }
 
-    public void updateUser(final User user){
+    public void updateUser(final UserEntity user){
         this.entityManager.merge(user);
     }
 
-    public void deleteUser(final User user){
+    public void deleteUser(final UserEntity user){
         this.entityManager.remove(user);
     }
 
