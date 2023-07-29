@@ -2,6 +2,7 @@ package com.issuetracker.engine.exception.handler;
 
 import com.issuetracker.engine.dto.error.ErrorResponseDto;
 import com.issuetracker.engine.exception.BadRequestException;
+import com.issuetracker.engine.exception.BussinessException;
 import com.issuetracker.engine.exception.NotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -39,6 +40,17 @@ public class ResourceHandler {
                 .statusCode(HttpStatus.BAD_REQUEST.value())
                 .build());
     }
+
+    @ExceptionHandler(BussinessException.class)
+    public ResponseEntity<ErrorResponseDto> badRequestException(BussinessException bu) {
+        String errorMessage = bu.getMessage();
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(ErrorResponseDto.builder()
+                .message(bu.getMessage())
+                .httpStatus(HttpStatus.CONFLICT)
+                .statusCode(HttpStatus.CONFLICT.value())
+                .build());
+    }
+
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponseDto> badRequestException(MethodArgumentNotValidException m) {
