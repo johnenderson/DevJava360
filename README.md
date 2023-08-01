@@ -4,6 +4,11 @@
 
 ### Iniciando projeto pela primeira vez
 
+> Para criar gerar um CPF aleatorio: https://www.4devs.com.br/gerador_de_cpf <br/>
+> Para gerar um e-mail aleatorio: https://www.mohmal.com/pt/inbox <br/>
+> Parar criar um Cartão de Crédito aleatorio: https://geradornv.com.br/gerador-cartao-credito/ <br/>
+> Parar gerar um número de Celular aleatorio: https://geradornv.com.br/gerador-celular/
+
 ### 🛠 Detalhes Tecnicos
 
 - Java 17

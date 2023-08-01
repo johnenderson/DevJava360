@@ -16,4 +16,5 @@ public interface SubscriptionTypeService {
     SubscriptionType update(Long id, SubscriptionTypeDto dto);
 
     void delete(Long id);
+
 }

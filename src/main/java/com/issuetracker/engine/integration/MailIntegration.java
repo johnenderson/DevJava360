@@ -2,6 +2,6 @@ package com.issuetracker.engine.integration;
 
 public interface MailIntegration {
 
-    void send(String mailTo, String message);
+    void send(String mailTo, String message, String subject);
 
 }
